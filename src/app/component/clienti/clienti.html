@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ragione Sociale</th>
+      <th>Tipo Cliente</th>
+      <th>Partita IVA</th>
+      <th>Indirizzo</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Fatturato Annuale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of cliente; index as i">
+      <td>{{ cliente.ragioneSociale }}</td>
+      <td>{{ cliente.tipoCliente }}</td>
+      <td>{{ cliente.partitaIva }}</td>
+      <td>
+        {{ cliente.indirizzo.via }} {{ cliente.indirizzo.civico }},
+        {{ cliente.indirizzo.cap }} {{ cliente.indirizzo.comune.nome }} ({{ cliente.indirizzo.comune.provincia.sigla }})
+      </td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefono }}</td>
+      <td>{{ cliente.fatturatoAnnuale }}€</td>
+    </tr>
+  </tbody>
+</table>

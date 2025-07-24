@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Descrizione</th>
+      <th>Nome</th>
+      <th>Prezzo</th>
+      <th>Tipo Servizio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let servizio of servizio; index as i">
+      <td>{{ servizio.descrizione }}</td>
+      <td>{{ servizio.nome }}</td>
+      <td>{{ servizio.prezzo }}€</td>
+      <td>{{ servizio.tipoServizio.nome }}</td>
+    </tr>
+  </tbody>
+</table>
