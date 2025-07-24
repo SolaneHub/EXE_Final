@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Service } from '../../service/service';
-import { Servizio } from '../../interfaces/servizo';
+import { Service } from '../../service/servicehttp';
+import { Servizio } from '../../interfaces/servizio';
 
 @Component({
   selector: 'app-servizi',
@@ -9,16 +9,16 @@ import { Servizio } from '../../interfaces/servizo';
   styleUrl: './servizi.css',
 })
 export class Servizi {
-  servizio: Servizio[] = [];
+  servizi: Servizio[] = [];
 
   constructor(private service: Service) {}
 
   ngOnInit(): void {
     this.service
-      .stampaServizi('http://localhost:8080/servizio')
+      .getAll<Servizio>('http://localhost:8080/servizio')
       .subscribe((response) => {
         console.log(response);
-        this.servizio = response;
+        this.servizi = response;
       });
   }
 }

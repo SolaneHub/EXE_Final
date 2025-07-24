@@ -1,1 +1,18 @@
-<p>fatture works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Ragione Sociale</th>
+      <th>Importo</th>
+      <th>Stato</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fattura of fatture; index as i">
+      <td>{{ fattura.cliente.ragioneSociale }}</td>
+      <td>{{ fattura.importo }}€</td>
+      <td>{{ fattura.stato }}</td>
+      <td>{{ fattura.data }}</td>
+    </tr>
+  </tbody>
+</table>

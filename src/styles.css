@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.emoji-button {      /* Rende l'emoji grande e visibile */
+  background: none;        /* Nessun colore di sfondo */
+  border: none;            /* Nessun bordo */
+  cursor: pointer;         /* Cambia il cursore al passaggio */
+  padding: 0;              /* Nessun padding extra */
+  margin: 0;               /* Nessun margine extra */
+  transition: transform 0.1s ease;
+}
+
+.emoji-button:hover {
+  transform: scale(1.2);   /* Effetto zoom al passaggio del mouse */
+}
+
+.emoji-button:active {
+  transform: scale(0.9);   /* Effetto click */
+}

@@ -1,1 +1,18 @@
-<p>ordini works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Ragione Sociale</th>
+      <th>Servizio</th>
+      <th>Descrizione</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ordine of ordini; index as i">
+      <td>{{ ordine.cliente.ragioneSociale }}</td>
+      <td>{{ ordine.servizio.nome }}</td>
+      <td>{{ ordine.servizio.descrizione }}</td>
+      <td>{{ ordine.data }}</td>
+    </tr>
+  </tbody>
+</table>
