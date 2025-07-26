@@ -3,8 +3,9 @@
     <tr>
       <th>Ragione Sociale</th>
       <th>Importo</th>
-      <th>Stato</th>
-      <th>Data</th>
+      <th (click)="orderAlphabetically('stato')">Stato</th>
+      <th (click)="orderAlphabetically('data')">Data</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,11 @@
       <td>{{ fattura.importo }}€</td>
       <td>{{ fattura.stato }}</td>
       <td>{{ fattura.data }}</td>
+      <td class="btn-cell">
+        <button class="delete-btn" (click)="deleteFattura(fattura.id)">
+          Elimina
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

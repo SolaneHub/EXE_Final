@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Service } from '../../service/servicehttp';
 import { Cliente } from '../../interfaces/cliente';
 
@@ -10,6 +10,26 @@ import { Cliente } from '../../interfaces/cliente';
 })
 export class Clienti {
   clienti: Cliente[] = [];
+  cliente: Cliente = {
+    ragioneSociale: '',
+    tipoCliente: '',
+    partitaIva: '',
+    indirizzo: {
+      via: '',
+      civico: '',
+      cap: '',
+      comune: {
+        nome: '',
+        provincia: {
+          nome: '',
+          sigla: '',
+        },
+      },
+    },
+    email: '',
+    telefono: '',
+    fatturatoAnnuale: 0,
+  };
   orderAsc: boolean = true;
 
   constructor(private service: Service) {}
@@ -23,12 +43,20 @@ export class Clienti {
       });
   }
 
-  orderByRagioneSociale() {
-    this.clienti = [...this.clienti].sort((a, b) =>
-      this.orderAsc
-        ? a.ragioneSociale.localeCompare(b.ragioneSociale)
-        : b.ragioneSociale.localeCompare(a.ragioneSociale)
-    );
-    this.orderAsc = !this.orderAsc;
+  addCliente() {
+    this.service
+      .add<Cliente>('http://localhost:8080/clienti', this.cliente)
+      .subscribe((newCliente) => {
+        this.clienti.push(newCliente);
+      });
+  }
+
+  deleteCliente(id: number) {
+    this.service
+      .delete<Cliente>(`http://localhost:8080/clienti/${id}`)
+      .subscribe((response) => {
+        console.log(response);
+        this.clienti = this.clienti.filter((clienti) => clienti.id !== id);
+      });
   }
 }

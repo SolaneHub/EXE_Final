@@ -5,6 +5,7 @@
       <th>Servizio</th>
       <th>Descrizione</th>
       <th>Data</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,11 @@
       <td>{{ ordine.servizio.nome }}</td>
       <td>{{ ordine.servizio.descrizione }}</td>
       <td>{{ ordine.data }}</td>
+      <td class="btn-cell">
+        <button class="delete-btn" (click)="deleteOrdine(ordine.id)">
+          Elimina
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

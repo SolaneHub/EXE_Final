@@ -1,18 +1,14 @@
 <table>
   <thead>
     <tr>
-      <th>
-        Ragione Sociale
-          <button class="emoji-button" (click)="orderByRagioneSociale()">
-            {{ orderAsc ? "⬇️" : "⬆️" }}
-          </button>
-      </th>
+      <th>Ragione Sociale</th>
       <th>Tipo Cliente</th>
       <th>Partita IVA</th>
       <th>Indirizzo</th>
       <th>Email</th>
       <th>Telefono</th>
       <th>Fatturato Annuale</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +25,118 @@
       <td>{{ cliente.email }}</td>
       <td>{{ cliente.telefono }}</td>
       <td>{{ cliente.fatturatoAnnuale }}€</td>
+      <td class="btn-cell">
+        <button class="delete-btn" (click)="deleteCliente(cliente.id!)">
+          Elimina
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
+<div class="form-container">
+  <form #clienteForm="ngForm" (ngSubmit)="addCliente()">
+    <div class="form-group">
+      <label for="ragioneSociale">Ragione Sociale</label>
+      <input
+        id="ragioneSociale"
+        name="ragioneSociale"
+        [(ngModel)]="cliente.ragioneSociale"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tipoCliente">Tipo Cliente</label>
+      <input
+        id="tipoCliente"
+        name="tipoCliente"
+        [(ngModel)]="cliente.tipoCliente"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="partitaIva">Partita IVA</label>
+      <input
+        id="partitaIva"
+        name="partitaIva"
+        [(ngModel)]="cliente.partitaIva"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-via">Via</label>
+      <input
+        id="indirizzo-via"
+        name="indirizzo.via"
+        [(ngModel)]="cliente.indirizzo.via"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-civico">Civico</label>
+      <input
+        id="indirizzo-civico"
+        name="indirizzo.civico"
+        [(ngModel)]="cliente.indirizzo.civico"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-cap">CAP</label>
+      <input
+        id="indirizzo-cap"
+        name="indirizzo.cap"
+        [(ngModel)]="cliente.indirizzo.cap"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-comune">Comune</label>
+      <input
+        id="indirizzo-comune"
+        name="indirizzo.comune.nome"
+        [(ngModel)]="cliente.indirizzo.comune.nome"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-comune-provincia-nome">Provincia</label>
+      <input
+        id="indirizzo-comune-provincia-nome"
+        name="indirizzo.comune.provincia.nome"
+        [(ngModel)]="cliente.indirizzo.comune.provincia.nome"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="indirizzo-comune-provincia-sigla">Sigla Provincia</label>
+      <input
+        id="indirizzo-comune-provincia-sigla"
+        name="indirizzo.comune.provincia.sigla"
+        [(ngModel)]="cliente.indirizzo.comune.provincia.sigla"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" name="email" [(ngModel)]="cliente.email" />
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Telefono</label>
+      <input id="telefono" name="telefono" [(ngModel)]="cliente.telefono" />
+    </div>
+
+    <div class="form-group">
+      <label for="fatturatoAnnuale">Fatturato Annuale</label>
+      <input
+        id="fatturatoAnnuale"
+        name="fatturatoAnnuale"
+        [(ngModel)]="cliente.fatturatoAnnuale"
+      />
+    </div>
+
+    <button type="submit" [disabled]="clienteForm.invalid">
+      Salva Cliente
+    </button>
+  </form>
+</div>

@@ -5,6 +5,7 @@
       <th>Nome</th>
       <th>Prezzo</th>
       <th>Tipo Servizio</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,11 @@
       <td>{{ servizio.nome }}</td>
       <td>{{ servizio.prezzo }}€</td>
       <td>{{ servizio.tipoServizio.nome }}</td>
+      <td class="btn-cell">
+        <button class="delete-btn" (click)="deleteServizio(servizio.id)">
+          Elimina
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

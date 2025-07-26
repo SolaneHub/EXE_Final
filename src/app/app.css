@@ -1,0 +1,31 @@
+/* CSS per la navbar */
+app-navbar {
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #f0f4f8;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+  font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+app-navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 8px 16px;
+}
+
+app-navbar a:hover {
+  color: #4a90e2;
+}

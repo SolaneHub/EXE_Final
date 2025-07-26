@@ -21,4 +21,15 @@ export class Ordini {
         this.ordini = response;
       });
   }
+
+  deleteOrdine(id: number) {
+    this.service
+      .delete<Ordine>(`http://localhost:8080/ordini/${id}`)
+      .subscribe((response) => {
+        console.log(response);
+        this.ordini = this.ordini.filter((ordini) => ordini.id !== id);
+      });
+  }
+
+
 }

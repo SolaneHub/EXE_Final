@@ -1,27 +1,151 @@
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 32px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
 }
 
-td, th {
-  border-bottom: 1px solid #ccc;
-  padding: 8px;
+thead {
+  background-color: #f0f4f8;
+}
+
+th {
   text-align: left;
+  padding: 16px;
+  font-weight: 600;
+  color: #333;
+  font-size: 15px;
+  border-bottom: 2px solid #e0e0e0;
 }
 
-.emoji-button {      /* Rende l'emoji grande e visibile */
-  background: none;        /* Nessun colore di sfondo */
-  border: none;            /* Nessun bordo */
-  cursor: pointer;         /* Cambia il cursore al passaggio */
-  padding: 0;              /* Nessun padding extra */
-  margin: 0;               /* Nessun margine extra */
-  transition: transform 0.1s ease;
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 15px;
+  color: #444;
+  vertical-align: top;
 }
 
-.emoji-button:hover {
-  transform: scale(1.2);   /* Effetto zoom al passaggio del mouse */
+tr:hover td {
+  background-color: #f9fbfc;
 }
 
-.emoji-button:active {
-  transform: scale(0.9);   /* Effetto click */
+.btn-cell {
+  text-align: right;
+}
+
+.delete-btn {
+  padding: 8px 16px;
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.btn-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.form-container {
+  width: 100%;
+  padding: 24px;
+  background-color: #fdfdfd;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+button[type="submit"] {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 24px;
+}
+
+button[type="submit"]:hover {
+  background-color: #357ab8;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
 }
