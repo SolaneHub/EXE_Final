@@ -10,12 +10,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let ordine of ordini; index as i">
-      <td>{{ ordine.cliente.ragioneSociale }}</td>
-      <td>{{ ordine.servizio.nome }}</td>
-      <td>{{ ordine.servizio.descrizione }}</td>
+      <td>{{ ordine.cliente!.ragioneSociale }}</td>
+      <td>{{ ordine.servizio!.nome }}</td>
+      <td>{{ ordine.servizio!.descrizione }}</td>
       <td>{{ ordine.data }}</td>
       <td class="btn-cell">
-        <button class="delete-btn" (click)="deleteOrdine(ordine.id)">
+        <button class="delete-btn" (click)="deleteOrdine(ordine.id!)">
           Elimina
         </button>
       </td>

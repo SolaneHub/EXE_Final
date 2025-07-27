@@ -17,9 +17,9 @@
       <td>{{ cliente.tipoCliente }}</td>
       <td>{{ cliente.partitaIva }}</td>
       <td>
-        {{ cliente.indirizzo.via }} {{ cliente.indirizzo.civico }},
-        {{ cliente.indirizzo.cap }} {{ cliente.indirizzo.comune.nome }} ({{
-          cliente.indirizzo.comune.provincia.sigla
+        {{ cliente.indirizzo!.via }} {{ cliente.indirizzo!.civico }},
+        {{ cliente.indirizzo!.cap }} {{ cliente.indirizzo!.comune!.nome }} ({{
+          cliente.indirizzo!.comune!.provincia!.sigla
         }})
       </td>
       <td>{{ cliente.email }}</td>
@@ -67,7 +67,7 @@
       <input
         id="indirizzo-via"
         name="indirizzo.via"
-        [(ngModel)]="cliente.indirizzo.via"
+        [(ngModel)]="cliente.indirizzo!.via"
       />
     </div>
 
@@ -76,7 +76,7 @@
       <input
         id="indirizzo-civico"
         name="indirizzo.civico"
-        [(ngModel)]="cliente.indirizzo.civico"
+        [(ngModel)]="cliente.indirizzo!.civico"
       />
     </div>
 
@@ -85,7 +85,7 @@
       <input
         id="indirizzo-cap"
         name="indirizzo.cap"
-        [(ngModel)]="cliente.indirizzo.cap"
+        [(ngModel)]="cliente.indirizzo!.cap"
       />
     </div>
 
@@ -94,7 +94,7 @@
       <input
         id="indirizzo-comune"
         name="indirizzo.comune.nome"
-        [(ngModel)]="cliente.indirizzo.comune.nome"
+        [(ngModel)]="cliente.indirizzo!.comune!.nome"
       />
     </div>
 
@@ -103,7 +103,7 @@
       <input
         id="indirizzo-comune-provincia-nome"
         name="indirizzo.comune.provincia.nome"
-        [(ngModel)]="cliente.indirizzo.comune.provincia.nome"
+        [(ngModel)]="cliente.indirizzo!.comune!.provincia!.nome"
       />
     </div>
 
@@ -112,7 +112,7 @@
       <input
         id="indirizzo-comune-provincia-sigla"
         name="indirizzo.comune.provincia.sigla"
-        [(ngModel)]="cliente.indirizzo.comune.provincia.sigla"
+        [(ngModel)]="cliente.indirizzo!.comune!.provincia!.sigla"
       />
     </div>
 

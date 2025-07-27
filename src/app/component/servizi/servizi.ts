@@ -9,40 +9,38 @@ import { Servizio } from '../../interfaces/servizio';
   styleUrl: './servizi.css',
 })
 export class Servizi {
+  url: string = 'http://localhost:8080/servizio';
   servizi: Servizio[] = [];
-  servizio: Servizio={
+  servizio: Servizio = {
     nome: '',
     prezzo: 0,
     descrizione: '',
     tipoServizio: {
-      nome: ''
-    }
+      nome: '',
+    },
   };
 
   constructor(private service: Service) {}
 
   ngOnInit(): void {
-    this.service
-      .getAll<Servizio>('http://localhost:8080/servizio')
-      .subscribe((response) => {
-        console.log(response);
-        this.servizi = response;
-      });
+    this.service.getAll<Servizio>(this.url).subscribe((response) => {
+      console.log(response);
+      this.servizi = response;
+    });
   }
 
-  addServizio(){
-    this.service.add<Servizio>('http://localhost:8080/servizio', this.servizio)
-    .subscribe((newServizio) =>{
-      this.servizi.push(newServizio);
-    })
+  addServizio() {
+    this.service
+      .add<Servizio>(this.url, this.servizio)
+      .subscribe((newServizio) => {
+        this.servizi.push(newServizio);
+      });
   }
 
   deleteServizio(id: number) {
-    this.service
-      .delete<Servizio>(`http://localhost:8080/servizio/${id}`)
-      .subscribe((response) => {
-        console.log(response);
-        this.servizi = this.servizi.filter((servizi) => servizi.id !== id);
-      });
+    this.service.delete<Servizio>(this.url + `/${id}`).subscribe((response) => {
+      console.log(response);
+      this.servizi = this.servizi.filter((servizi) => servizi.id !== id);
+    });
   }
 }
