@@ -22,3 +22,41 @@
     </tr>
   </tbody>
 </table>
+<div class="form-container">
+  <form #clienteForm="ngForm" (ngSubmit)="addOrdine()">
+    <div class="form-group">
+      <label for="ragioneSociale">Ragione Sociale</label>
+      <select
+        id="ragioneSociale"
+        name="ragioneSociale"
+        [(ngModel)]="ordine.cliente"
+        required
+      >
+        <option [ngValue]="null" disabled selected>Seleziona un cliente</option>
+        <option *ngFor="let cliente of clienti" [ngValue]="clienti">
+          {{cliente.ragioneSociale}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="servizio">Servizio</label>
+      <input id="servizio" name="servizio" [(ngModel)]="ordine.servizio.nome" />
+    </div>
+
+    <div class="form-group">
+      <label for="descrizione">Descrizione</label>
+      <input
+        id="descrizione"
+        name="descrizione"
+        [(ngModel)]="ordine.servizio.descrizione"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="data"> Data</label>
+      <input id="data" name="data" [(ngModel)]="ordine.data" />
+    </div>
+    <button type="submit" [disabled]="clienteForm.invalid">Salva Ordine</button>
+  </form>
+</div>

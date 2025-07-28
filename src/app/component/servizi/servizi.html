@@ -48,11 +48,11 @@
       <input
         id="tipoServizio"
         name="tipoServizio"
-        [(ngModel)]="servizio.tipoServizio.nome"
+        [(ngModel)]="servizio.tipoServizio!.nome"
       />
     </div>
     <button type="submit" [disabled]="clienteForm.invalid">
-      Salva Cliente
+      Salva Servizio
     </button>
   </form>
 </div>

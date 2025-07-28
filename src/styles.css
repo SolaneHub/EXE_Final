@@ -149,3 +149,30 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
   transform: none;
 }
+
+select {
+  height: 40px; /* Forza la stessa altezza dell'input */
+  padding: 10px 40px 10px 14px; /* Spazio a destra per la freccia */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+  box-sizing: border-box;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+select::-ms-expand {
+  display: none;
+}

@@ -16,6 +16,10 @@ export class Service {
     return this.http.post<T>(url, body);
   }
 
+  updateById<T>(url: string, id: number, body: T): Observable<T> {
+    return this.http.put<T>(`${url}/${id}`, body);
+  }
+
   delete<T>(url: string): Observable<T> {
     return this.http.delete<T>(url);
   }

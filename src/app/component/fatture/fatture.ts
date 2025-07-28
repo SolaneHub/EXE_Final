@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Service } from '../../service/servicehttp';
+import { Service } from '../../service/http-service';
 import { Fattura } from '../../interfaces/fattura';
 
 @Component({
